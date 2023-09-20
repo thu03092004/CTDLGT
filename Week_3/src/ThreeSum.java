@@ -65,7 +65,7 @@ public class ThreeSum {
                 if(a[i] + a[j] + a[k] == 0){
                     System.out.println(a[i] + " " + a[j] + " " + a[k]);
                     j++;
-                    k--;
+                    k--;s
                 }
                 else if(a[i] + a[j] + a[k] > 0) k--;
                 else j++;
