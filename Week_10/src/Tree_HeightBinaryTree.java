@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class Node{
+    public int ht;
     Node left;
     Node right;
     int data;
