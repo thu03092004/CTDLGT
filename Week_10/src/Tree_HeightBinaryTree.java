@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 class Node{
-    public int ht;
     Node left;
     Node right;
     int data;
@@ -14,30 +13,28 @@ class Node{
 public class Tree_HeightBinaryTree {
     public static int height(Node root){
         if(root == null) return -1;
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
-        return Math.max(leftHeight, rightHeight) + 1;
+        else{
+            return Math.max(height(root.left), height(root.right)) + 1;
+        }
     }
-    public static Node insert(Node root, int data) {
-        if(root == null){
-            return new Node(data);
-        } else {
-            Node cur;
-            if (data <= root.data) {
-                cur = insert(root.left, data);
-                root.left = cur;
-            } else {
-                cur = insert(root.right, data);
-                root.right = cur;
+    public static Node insert(Node root, int data){
+        if(root == null) return new Node(data);
+        else{
+            if(data < root.data){
+                root.left = insert(root.left, data);
+            }
+            else {
+                root.right = insert(root.right, data);
             }
             return root;
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         Node root = null;
-        while(t-- > 0){
+        while (t-- > 0){
             int data = sc.nextInt();
             root = insert(root, data);
         }
